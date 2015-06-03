@@ -1,0 +1,46 @@
+<%= form_for(@chu) do |f| %>
+  <% if @chu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chu.errors.count, "error") %> prohibited this chu from being saved:</h2>
+
+      <ul>
+      <% @chu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.hidden_field :latitude %>
+	<%= f.hidden_field :longitude %>
+    
+    <%= f.label :tagline %><br />
+    <%= f.text_field :tagline %><br />  
+    <%= f.label :list_type %><br />
+    <%= f.text_field :list_type %><br />
+    <%= f.label :available_date %><br />
+    <%= f.date_select :available_date, discard_year: true %><br />
+    <%= f.label :address %><br />
+    <%= f.text_field :address %><br />
+	<%= f.select :base, Chu::BASE_NAMES, :prompt => "Nearest Installation" %><br />
+    <%= f.label :description %><br />
+    <%= f.text_area :description %><br />
+    <%= f.label :bedroom %><br />
+    <%= f.number_field :bedroom %><br />
+    <%= f.label :bathroom %><br />
+    <%= f.number_field :bathroom %><br />
+    <%= f.label :price %><br />
+    <%= f.number_field :price %><br />
+    <%= f.label :sec_deposit %><br />
+    <%= f.number_field :sec_deposit %><br />
+    <%= f.label :cleaning_fee %><br />
+    <%= f.number_field :cleaning_fee %><br />
+    <%= f.label :smoking %><br />
+    <%= f.check_box :smoking %><br />
+    <%= f.label :pet %><br />
+    <%= f.check_box :pet %><br />
+    <%= f.label :additional_info %><br />
+    <%= f.text_area :additional_info %><br />
+    <%= f.submit %>
+<% end %>
