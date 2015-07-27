@@ -16,31 +16,63 @@
 	<%= f.hidden_field :longitude %>
     
     <%= f.label :tagline %><br />
-    <%= f.text_field :tagline %><br />  
+    <%= f.text_field :tagline %><br />
+    
+    <% if f.object.present? %>
+    	photos exists <br />
+    <% else %>
+		<%= f.label :image1, "Cover Photo" %><br />
+		<%= f.attachment_field :image1, direct: true %><br />
+		<%= f.label :image2, "Photo 2" %><br />
+		<%= f.attachment_field :image2, direct: true %><br />
+		
+		<%= f.label :image3, "Photo 3" %><br />
+		<%= f.attachment_field :image3, direct: true %><br />
+	
+		<%= f.label :image4, "Photo 4" %><br />
+		<%= f.attachment_field :image4, direct: true %><br />
+	
+		<%= f.label :image5, "Photo 5" %><br />
+		<%= f.attachment_field :image5, direct: true %><br />
+    <% end %>
+    
     <%= f.label :list_type %><br />
     <%= f.text_field :list_type %><br />
+    
     <%= f.label :available_date %><br />
     <%= f.date_select :available_date, discard_year: true %><br />
+    
     <%= f.label :address %><br />
     <%= f.text_field :address %><br />
+    
 	<%= f.select :base, Chu::BASE_NAMES, :prompt => "Nearest Installation" %><br />
+    
     <%= f.label :description %><br />
     <%= f.text_area :description %><br />
+    
     <%= f.label :bedroom %><br />
     <%= f.number_field :bedroom %><br />
+    
     <%= f.label :bathroom %><br />
     <%= f.number_field :bathroom %><br />
+    
     <%= f.label :price %><br />
     <%= f.number_field :price %><br />
+    
     <%= f.label :sec_deposit %><br />
     <%= f.number_field :sec_deposit %><br />
+    
     <%= f.label :cleaning_fee %><br />
     <%= f.number_field :cleaning_fee %><br />
+    
     <%= f.label :smoking %><br />
     <%= f.check_box :smoking %><br />
+    
     <%= f.label :pet %><br />
     <%= f.check_box :pet %><br />
+    
     <%= f.label :additional_info %><br />
     <%= f.text_area :additional_info %><br />
+    
     <%= f.submit %>
 <% end %>

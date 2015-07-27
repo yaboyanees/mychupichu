@@ -72,6 +72,6 @@ class ChusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chu_params
-      params.require(:chu).permit(:tagline, :list_type, :available_date, :latitude, :longitude, :address, :base, :description, :bedroom, :bathroom, :price, :sec_deposit, :cleaning_fee, :smoking, :pet, :additional_info, :user_id)
+      params.require(:chu).permit(:tagline, :list_type, :available_date, :latitude, :longitude, :address, :base, :description, :bedroom, :bathroom, :price, :sec_deposit, :cleaning_fee, :smoking, :pet, :additional_info, :image1, :image2, :image3, :image4, :image5, :user_id)
     end
 end

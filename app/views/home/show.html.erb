@@ -7,6 +7,11 @@
 <% @chus.each do |chu| %>  
 	<% if params[:id].to_s == chu.id.to_s %>
 		<%= chu.tagline %><br />
+  		<%= image_tag attachment_url(chu, :image1, :fill, 300, 300) %><br />
+		<%= image_tag attachment_url(chu, :image2, :fill, 300, 300) %><br />
+		<%= image_tag attachment_url(chu, :image3, :fill, 300, 300) %><br />
+		<%= image_tag attachment_url(chu, :image4, :fill, 300, 300) %><br />
+		<%= image_tag attachment_url(chu, :image5, :fill, 300, 300) %><br />
 		<%= chu.available_date.strftime("%b %d") %><br />
 		<%= chu.address %><br />
 		<%= chu.base %><br />

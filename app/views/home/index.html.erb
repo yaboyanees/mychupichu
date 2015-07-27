@@ -1,7 +1,8 @@
 <% if user_signed_in? %>
 	<% if params[:search] %>	
 		<% @chus.each do |chu| %><br /><br /> 
-			<%= link_to chu.tagline, home_path(:id => chu.id) %><br />
+			<%= link_to chu.tagline, home_path(:id => chu.id), 'data-no-turbolink' => true %><br />
+  			<%= image_tag attachment_url(chu, :image1, :fill, 300, 300, format: "jpg") %>
 			<%= chu.user.fullname %><br />
 			<%= chu.available_date.strftime("%b %d") %><br />
 			<%= chu.address %><br />

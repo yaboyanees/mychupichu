@@ -15,6 +15,11 @@ ActiveRecord::Schema.define(version: 20150603005020) do
 
   create_table "chus", force: :cascade do |t|
     t.string   "tagline"
+    t.string   "image1_id"
+    t.string   "image2_id"
+    t.string   "image3_id"
+    t.string   "image4_id"
+    t.string   "image5_id"
     t.string   "list_type"
     t.date     "available_date"
     t.float    "latitude"

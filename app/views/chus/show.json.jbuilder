@@ -1,1 +1,1 @@
-json.extract! @chu, :id, :tagline, :type, :available_date, :latitude, :longitude, :address, :base, :description, :bedroom, :bathroom, :price, :sec_deposit, :cleaning_fee, :smoking, :pet, :additional_info, :user_id, :created_at, :updated_at
+json.extract! @chu, :id, :tagline, :type, :available_date, :latitude, :longitude, :address, :base, :description, :bedroom, :bathroom, :price, :sec_deposit, :cleaning_fee, :smoking, :pet, :additional_info, :image1, :image2, :image3, :image4, :image5, :user_id, :created_at, :updated_at

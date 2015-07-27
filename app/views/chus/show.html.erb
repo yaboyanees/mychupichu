@@ -6,6 +6,31 @@
 </p>
 
 <p>
+  <strong>Cover Photo:</strong>
+  <%= image_tag attachment_url(@chu, :image1, :fill, 300, 300) %>
+</p>
+
+<p>
+  <strong>Photo 2:</strong>
+  <%= image_tag attachment_url(@chu, :image2, :fill, 150, 150) %>
+</p>
+
+<p>
+  <strong>Photo 3:</strong>
+  <%= image_tag attachment_url(@chu, :image3, :fill, 150, 150) %>
+</p>
+
+<p>
+  <strong>Photo 4:</strong>
+  <%= image_tag attachment_url(@chu, :image4, :fill, 150, 150) %>
+</p>
+
+<p>
+  <strong>Photo 5:</strong>
+  <%= image_tag attachment_url(@chu, :image5, :fill, 150, 150) %>
+</p>
+
+<p>
   <strong>Type:</strong>
   <%= @chu.list_type %>
 </p>
