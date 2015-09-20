@@ -5,10 +5,10 @@ ruby '2.1.7'
 gem 'rails', '4.2.1'
 
 group :development, :test do
-  gem 'pg',             '0.17.1'
+  gem 'pg', '0.18.3'
 end
 group :production do
-  gem 'pg',             '0.17.1'
+  gem 'pg', '0.18.3'
   gem 'rails_12factor', '0.0.2'
 end
 # Use SCSS for stylesheets
