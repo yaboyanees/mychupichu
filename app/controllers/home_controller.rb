@@ -1,21 +1,25 @@
 class HomeController < ApplicationController
   def index
-  	if params[:search]
+  	if params[:search].present?
   		@chus = Chu.search(params[:search]).order("created_at DESC")
-		@users = User.all
+		@user = current_user
   	else
-  		@chus = Chu.limit(0)
+  		@posts = Chu.uniq.pluck("base")
 	end
   end
+
   def show
-  	@chus = Chu.all
-  	@users = User.select("id", "name")
-	@hash = Gmaps4rails.build_markers(@chus) do |chu, marker|
-	  marker.lat chu.latitude
-	  marker.lng chu.longitude
-	end
+		@chu = Chu.find(params[:id])
+		@user = current_user
+		@hash = Gmaps4rails.build_markers(@chu) do |chu, marker|
+		  marker.lat chu.latitude
+		  marker.lng chu.longitude
+		end
+		@comment = Comment.new
+		@c = Comment.pluck("id")
+		@comments = @chu.comments
   end
-  def edit
-  	@users = User.select("id", "name")
-  end
+	
 end
+
+

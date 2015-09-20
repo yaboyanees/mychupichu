@@ -1,8 +1,11 @@
 class Chu < ActiveRecord::Base
-	BASE_NAMES = ["Fort Hood", "Fort Gordon", "Fort Stewart", "Fort Benning", "Fort Irwin", "Fort Sill",
-				  "Fort Bliss", "Fort Drum", "Fort Lewis"]
+	BASE_NAMES = ["Hood", "Bragg", "Stewart", "Benning", "Bliss", "Sill", "Gordon",
+				  "Drum", "Lewis", "Carson", "Irwin", "Knox", "Lee", "Meade", "Belvoir",
+				  "Riley", "Polk", "Wainright", "Shafter", "Eustis", "Jackson", "Huachuca",
+				  "Richardson", "Sam Houston", "Wainwright", "Rucker", "Detrick"]
 	
 	belongs_to :user
+	has_many :comments
 	
 	attachment :image1, type: :image
 	attachment :image2, type: :image

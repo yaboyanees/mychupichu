@@ -1,5 +1,5 @@
 class ChusController < ApplicationController
-  before_action :set_chu, only: [:show, :edit, :update, :destroy]
+  before_action :set_chu, only: [:show, :new, :destroy, :edit, :update]
   before_action :authenticate_user!
 
   respond_to :html
@@ -11,7 +11,6 @@ class ChusController < ApplicationController
   # GET /chus/1
   # GET /chus/1.json
   def show
-  	respond_with(@chu)
   end
 
   # GET /chus/new
@@ -31,7 +30,7 @@ class ChusController < ApplicationController
 
     respond_to do |format|
       if @chu.save
-        format.html { redirect_to @chu, notice: 'Chu was successfully created.' }
+        format.html { redirect_to @chu }
         format.json { render :show, status: :created, location: @chu }
       else
         format.html { render :new }
@@ -45,7 +44,7 @@ class ChusController < ApplicationController
   def update
     respond_to do |format|
       if @chu.update(chu_params)
-        format.html { redirect_to @chu, notice: 'Chu was successfully updated.' }
+        format.html { redirect_to @chu }
         format.json { render :show, status: :ok, location: @chu }
       else
         format.html { render :edit }

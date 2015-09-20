@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
      	 :omniauthable
  	
 	has_many :chus
+	has_many :comments
 
 	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 		user = User.where(:provider => auth.provider, :uid => auth.uid).first

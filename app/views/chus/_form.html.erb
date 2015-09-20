@@ -1,4 +1,4 @@
-<%= form_for(@chu) do |f| %>
+<%= form_for(@chu) do |form| %>
   <% if @chu.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@chu.errors.count, "error") %> prohibited this chu from being saved:</h2>
@@ -11,68 +11,65 @@
     </div>
   <% end %>
 	
-	<%= f.hidden_field :user_id, :value => current_user.id %>
-	<%= f.hidden_field :latitude %>
-	<%= f.hidden_field :longitude %>
+	<%= form.hidden_field :user_id, :value => current_user.id %>
+	<%= form.hidden_field :latitude %>
+	<%= form.hidden_field :longitude %>
     
-    <%= f.label :tagline %><br />
-    <%= f.text_field :tagline %><br />
+    <%= form.label :tagline %><br />
+    <%= form.text_field :tagline %><br />
     
-    <% if f.object.present? %>
-    	photos exists <br />
-    <% else %>
-		<%= f.label :image1, "Cover Photo" %><br />
-		<%= f.attachment_field :image1, direct: true %><br />
-		<%= f.label :image2, "Photo 2" %><br />
-		<%= f.attachment_field :image2, direct: true %><br />
-		
-		<%= f.label :image3, "Photo 3" %><br />
-		<%= f.attachment_field :image3, direct: true %><br />
+	<%= form.label :image1, "Cover Photo" %><br />
+	<%= form.attachment_field :image1, direct: true, presigned: true %><br />
 	
-		<%= f.label :image4, "Photo 4" %><br />
-		<%= f.attachment_field :image4, direct: true %><br />
+	<%= form.label :image2, "Photo 2" %><br />
+	<%= form.attachment_field :image2, direct: true, presigned: true %><br />
 	
-		<%= f.label :image5, "Photo 5" %><br />
-		<%= f.attachment_field :image5, direct: true %><br />
-    <% end %>
+	<%= form.label :image3, "Photo 3" %><br />
+	<%= form.attachment_field :image3, direct: true, presigned: true %><br />
+
+	<%= form.label :image4, "Photo 4" %><br />
+	<%= form.attachment_field :image4, direct: true, presigned: true %><br />
+
+	<%= form.label :image5, "Photo 5" %><br />
+	<%= form.attachment_field :image5, direct: true, presigned: true %><br />
+
+    <%= form.label :list_type %><br />
+    <%= form.text_field :list_type %><br />
     
-    <%= f.label :list_type %><br />
-    <%= f.text_field :list_type %><br />
+    <%= form.label :available_date %><br />
+    <%= form.date_select :available_date, discard_year: true %><br />
     
-    <%= f.label :available_date %><br />
-    <%= f.date_select :available_date, discard_year: true %><br />
+    <%= form.label :address %><br />
+    <%= form.text_field :address %><br />
     
-    <%= f.label :address %><br />
-    <%= f.text_field :address %><br />
+	<%= form.select :base, Chu::BASE_NAMES, :prompt => "Select Post" %><br />
     
-	<%= f.select :base, Chu::BASE_NAMES, :prompt => "Nearest Installation" %><br />
+    <%= form.label :description %><br />
+    <%= form.text_area :description %><br />
     
-    <%= f.label :description %><br />
-    <%= f.text_area :description %><br />
+    <%= form.label :bedroom %><br />
+    <%= form.number_field :bedroom %><br />
     
-    <%= f.label :bedroom %><br />
-    <%= f.number_field :bedroom %><br />
+    <%= form.label :bathroom %><br />
+    <%= form.number_field :bathroom %><br />
     
-    <%= f.label :bathroom %><br />
-    <%= f.number_field :bathroom %><br />
+    <%= form.label :price %><br />
+    <%= form.number_field :price %><br />
     
-    <%= f.label :price %><br />
-    <%= f.number_field :price %><br />
+    <%= form.label :sec_deposit %><br />
+    <%= form.number_field :sec_deposit %><br />
     
-    <%= f.label :sec_deposit %><br />
-    <%= f.number_field :sec_deposit %><br />
+    <%= form.label :cleaning_fee %><br />
+    <%= form.number_field :cleaning_fee %><br />
     
-    <%= f.label :cleaning_fee %><br />
-    <%= f.number_field :cleaning_fee %><br />
+    <%= form.label :smoking %><br />
+    <%= form.check_box :smoking %><br />
     
-    <%= f.label :smoking %><br />
-    <%= f.check_box :smoking %><br />
+    <%= form.label :pet %><br />
+    <%= form.check_box :pet %><br />
     
-    <%= f.label :pet %><br />
-    <%= f.check_box :pet %><br />
+    <%= form.label :additional_info %><br />
+    <%= form.text_area :additional_info %><br />
     
-    <%= f.label :additional_info %><br />
-    <%= f.text_area :additional_info %><br />
-    
-    <%= f.submit %>
+    <%= form.submit %>
 <% end %>

@@ -1,31 +1,32 @@
-<% if user_signed_in? %>
-	<% if params[:search] %>	
-		<% @chus.each do |chu| %><br /><br /> 
-			<%= link_to chu.tagline, home_path(:id => chu.id), 'data-no-turbolink' => true %><br />
-  			<%= image_tag attachment_url(chu, :image1, :fill, 300, 300, format: "jpg") %>
-			<%= chu.user.fullname %><br />
-			<%= chu.available_date.strftime("%b %d") %><br />
-			<%= chu.address %><br />
-			<%= chu.base %><br />
-			<%= chu.description %><br />
-			<%= chu.bedroom %><br />
-			<%= chu.bathroom %><br />
-			<%= chu.price %><br />
-			<%= chu.sec_deposit %><br />
-			<%= chu.cleaning_fee %><br />
-			<%= chu.additional_info %><br />
-			<% if current_user.id == chu.id %>
+<% if params[:search].present? %>	
+	<% if @chus.each do |chu| %> 
+		<%= link_to chu.tagline, home_path(chu), 'data-no-turbolink' => true %><br />
+		<%= image_tag attachment_url(chu, :image1, :fill, 300, 300, format: "jpg") %><br />
+		<%= chu.available_date.strftime("%b %d") %><br />
+		<%= chu.bedroom %><br />
+		<%= chu.bathroom %><br />
+		<%= chu.price %><br />
+		
+		<% if user_signed_in? %>
+			<% if @user.id == chu.user_id %>
 				<%= link_to 'Edit', edit_chu_path(chu) %>
 				<%= link_to 'Remove', chu, method: :delete, data: { confirm: 'Are you sure?' } %><br /> <br />       	
 			<% end %>
-			<br />
-		<% end %>
-	<% else %>
+		<% end %><br />
+		
+	<% end.empty? %>
+		<p class="notice">Sorry No Houses For This Post Yet...</p>
 		<%= form_tag(root_path, :method => "get", id: "search-form") do %>
-			<%= text_field_tag :search, params[:search], placeholder: "Posts" %>
+			<%= select_tag :search, options_for_select(Chu::BASE_NAMES, params[:search]), :prompt => 'Select Post' %>
 			<%= submit_tag "Search", :name => nil %>
 		<% end %>
 	<% end %>
+
 <% else %>
-	<h1>Welcome</h1>
+	
+	<%= form_tag(root_path, :method => "get", id: "search-form") do %>
+		<%= select_tag :search, options_for_select(Chu::BASE_NAMES, params[:search]), :prompt => 'Select Post' %>
+		<%= submit_tag "Search", :name => nil %>
+	<% end %>
+	
 <% end %>
