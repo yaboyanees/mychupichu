@@ -22,24 +22,10 @@ body {
 	background-color: #2B2B2B;
 }
 
-.my-btn {
-  //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-  @include button-variant(#2B2B2B, #DE1B1B, #E9E581);
-}
-
-.btn > a:hover, 
-.btn > a:focus {
-	color: #E9E581;
-	text-decoration: none;
-}
-
-.btn > a {
-	color: #2B2B2B;
-}
 
 /* navbar */
 .navbar-default {
-    background-color: #F6F6F6;
+    background-color: #FFFFFF;
     border-color: #DE1B1B;
 }
 
@@ -60,30 +46,33 @@ body {
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #E9E581;
+    color: #DE1B1B;
 }
 
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
-    color: #555;
-    background-color: #E9E581;
+    color: #FFFFFF;
+    background-color: #2B2B2B;
 }
 
 .navbar-default .navbar-nav > .open > a, 
 .navbar-default .navbar-nav > .open > a:hover, 
 .navbar-default .navbar-nav > .open > a:focus {
-    color: #555;
-    background-color: #E9E581;
+    color: #FFFFFF;
+    background-color: #2B2B2B;
 }
 
-#login-opt {
-	list-style-type: none;
-	margin: 100px 0 100px 0;
-	padding: 0;
+
+.jumbotron {
+    background-image: url(doors.jpeg);
+    background-size: cover;
+    background-position: center;
+    height: 350px;
 }
 
-#login-opt li {
-	margin-bottom: 20px;
+.jumbotron h1, h2 {
+    color: #FFFFFF;
+    text-align: center;
 }
 

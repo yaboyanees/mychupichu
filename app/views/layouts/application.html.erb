@@ -29,6 +29,11 @@
       	<ul class="nav navbar-nav navbar-right">
       		<li><%= link_to 'logout', destroy_user_session_path, :method => :delete %></li>
       	</ul>
+      <% else %>
+      	<ul class="nav navbar-nav navbar-right">
+      		<li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+      		<li><%= link_to "Sign in with Linkedin", user_omniauth_authorize_path(:linkedin) %></li>
+      	</ul>
       <% end %>	
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -37,31 +42,15 @@
 <% if user_signed_in? %>
 	<div class="jumbotron">
 		<h1>Hi</h1><%= current_user.name %>
-		<p>Welcome back!</p>
+		<h2>Welcome back!</h2>
 	</div>
 <% else %>
 	<div class="jumbotron">
 		<h1>Welcome!</h1>
-		<p>Please sign in below.</p>
+		<h2>Please sign in below.</h2>
 	</div>
 <% end %>
 
-<div class="container-fluid">
-	<% if user_signed_in? %>
-		Hi <%= current_user.name %>
-	<% else %>
-		<div class="row">
-			<ul id="login-opt">
-				<div class="col-md-6">
-					<li><button type="button" class="btn btn-default btn-lg btn-block my-btn"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></buton></li> 
-				</div>
-				<div class="col-md-6"> 
-					<li><button type="button" class="btn btn-default btn-lg btn-block my-btn"><%= link_to "Sign in with Linkedin", user_omniauth_authorize_path(:linkedin) %></button></li>
-				</div>
-			</ul>
-		</div>
-	<% end %>
-</div>
 
 	<div class="container-fluid">
 		<p class="notice"><%= notice %></p>
