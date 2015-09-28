@@ -47,7 +47,11 @@
 <% else %>
 	<div class="jumbotron">
 		<h1>Welcome!</h1>
-		<h2>Please sign in below.</h2>
+		<h2>Find your new home today!</h2>
+		<%= form_tag(root_path, :method => "get", id: "search-form") do %>
+		<%= select_tag :search, options_for_select(Chu::BASE_NAMES, params[:search]), :prompt => 'Select Post' %>
+		<%= submit_tag "Search", :name => nil, class: "btn btn-default my-btn" %>
+	<% end %>
 	</div>
 <% end %>
 
