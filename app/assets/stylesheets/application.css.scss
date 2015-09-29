@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require jasny-bootstrap.min
  *= require_tree .
  *= require_self
  */
@@ -63,6 +64,24 @@ body {
     background-color: #2B2B2B;
 }
 
+#myNavmenu {
+    background-color: #2B2B2B;
+    border: none;
+    opacity: .95;
+}
+
+.navmenu-default .navmenu-nav > .active > a,
+.navmenu-default .navmenu-nav > .active > a:hover,
+.navmenu-default .navmenu-nav > .active > a:focus {
+    background-color: #FFFFFF;
+    color: #DE1B1B;
+}
+
+.navmenu-default .navmenu-nav > li > a:hover,
+.navmenur-default .navmenur-nav > li > a:focus {
+    color: #DE1B1B;
+    font-weight: bold;
+}
 
 .jumbotron {
     background-image: url(doors.jpeg);

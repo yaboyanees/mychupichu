@@ -39,6 +39,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'jasny-bootstrap-rails'
 gem 'autoprefixer-rails'
 gem 'devise'
 gem 'geocoder'

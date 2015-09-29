@@ -16,6 +16,7 @@
 //= require underscore
 //= require gmaps/google
 //= require bootstrap-sprockets
+//= require jasny-bootstrap.min
 //= require_tree .
 
 (function() {

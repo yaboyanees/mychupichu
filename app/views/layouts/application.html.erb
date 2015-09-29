@@ -8,10 +8,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+    <a class="navmenu-brand" href="#">Brand</a>
+    <ul class="nav navmenu-nav">
+      <li class="active"><%= link_to 'Home', root_path %><span class="sr-only">(current)</span></li>
+      <li><%= link_to 'Add Chu', chus_path %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to 'logout', destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+        <li><%= link_to "Sign in with Linkedin", user_omniauth_authorize_path(:linkedin) %></li>
+      <% end %>
+    </ul>
+  </nav>
+
 	<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#myNavmenu">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
