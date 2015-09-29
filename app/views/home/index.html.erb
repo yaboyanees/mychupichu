@@ -21,12 +21,4 @@
 			<%= submit_tag "Search", :name => nil %>
 		<% end %>
 	<% end %>
-
-<% else %>
-	
-	<%= form_tag(root_path, :method => "get", id: "search-form") do %>
-		<%= select_tag :search, options_for_select(Chu::BASE_NAMES, params[:search]), :prompt => 'Select Post' %>
-		<%= submit_tag "Search", :name => nil %>
-	<% end %>
-	
 <% end %>

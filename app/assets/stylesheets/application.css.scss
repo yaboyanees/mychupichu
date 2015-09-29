@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require jasny-bootstrap.min
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	padding-top: 50px;
+	background-color: #2B2B2B;
+}
+
+
+/* navbar */
+.navbar-default {
+    background-color: #FFFFFF;
+    border-color: #DE1B1B;
+}
+
+/* title */
+.navbar-default .navbar-brand {
+    color: #DE1B1B;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #DE1B1B;
+}
+
+/* link */
+.navbar-default .navbar-nav > li > a {
+    color: #777;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #DE1B1B;
+}
+
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #FFFFFF;
+    background-color: #2B2B2B;
+}
+
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #FFFFFF;
+    background-color: #2B2B2B;
+}
+
+#myNavmenu {
+    background-color: #2B2B2B;
+    border: none;
+    opacity: .95;
+}
+
+.navmenu-default .navmenu-nav > .active > a,
+.navmenu-default .navmenu-nav > .active > a:hover,
+.navmenu-default .navmenu-nav > .active > a:focus {
+    background-color: #FFFFFF;
+    color: #DE1B1B;
+}
+
+.navmenu-default .navmenu-nav > li > a:hover,
+.navmenur-default .navmenur-nav > li > a:focus {
+    color: #DE1B1B;
+    font-weight: bold;
+}
+
+.jumbotron {
+    background-image: url(doors.jpeg);
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+}
+
+.jumbotron h1, h2, p {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+#search-form {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.my-btn {
+    color: #FFFFFF;
+    border-color: #2B2B2B;
+    background-color: #2B2B2B;
+}
+
+.my-btn:hover,
+.my-btn:focus {
+    color: #FFFFFF;
+    background-color: #DE1B1B;
+    border-color: #DE1B1B;
+}
+
+.navbar-right li a {
+    padding-top: 8px;
+    padding-bottom: 0px;
+}
+
+
+
+
+
+
