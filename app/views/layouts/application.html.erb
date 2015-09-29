@@ -16,8 +16,8 @@
       <% if user_signed_in? %>
         <li><%= link_to 'logout', destroy_user_session_path, :method => :delete %></li>
       <% else %>
-        <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
-        <li><%= link_to "Sign in with Linkedin", user_omniauth_authorize_path(:linkedin) %></li>
+        <li><%= link_to image_tag('fb.png'),user_omniauth_authorize_path(:facebook) %></li>
+        <li><%= link_to image_tag("Linkdin.png"), user_omniauth_authorize_path(:linkedin) %></li>
       <% end %>
     </ul>
   </nav>
@@ -45,8 +45,8 @@
       	</ul>
       <% else %>
       	<ul class="nav navbar-nav navbar-right">
-      		<li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
-      		<li><%= link_to "Sign in with Linkedin", user_omniauth_authorize_path(:linkedin) %></li>
+      		<li><%= link_to image_tag("fb.png"), user_omniauth_authorize_path(:facebook) %></li>
+      		<li><%= link_to image_tag("Linkdin.png"), user_omniauth_authorize_path(:linkedin) %></li>
       	</ul>
       <% end %>	
     </div><!-- /.navbar-collapse -->
@@ -61,7 +61,7 @@
 <% else %>
 	<div class="jumbotron">
 		<h1>Welcome!</h1>
-		<h2>Find your new home today!</h2>
+		<h2>Our Home is Your Home!</h2>
 		<%= form_tag(root_path, :method => "get", id: "search-form") do %>
 		<%= select_tag :search, options_for_select(Chu::BASE_NAMES, params[:search]), :prompt => 'Select Post' %>
 		<%= submit_tag "Search", :name => nil, class: "btn btn-default my-btn" %>
