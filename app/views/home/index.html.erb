@@ -15,10 +15,22 @@
 		<% end %><br />
 		
 	<% end.empty? %>
-		<p class="notice">Sorry No Houses For This Post Yet...</p>
+		<div class="jumbotron">
+			<h1>Please Check Back</h1>
+			<h2>No Chus For This Post Yet :(</h2>
+			<%= form_tag(root_path, :method => "get", id: "search-form") do %>
+				<%= select_tag :search, options_for_select(Chu::BASE_NAMES, params[:search]), :prompt => 'Select Post' %>
+				<%= submit_tag "Search", :name => nil, class: "btn btn-default my-btn"  %>
+			<% end %>
+		</div>
+	<% end %>
+<% else %>
+	<div class="jumbotron">
+		<h1>Welcome</h1>
+		<h2>Our Home is Your Home!</h2>
 		<%= form_tag(root_path, :method => "get", id: "search-form") do %>
 			<%= select_tag :search, options_for_select(Chu::BASE_NAMES, params[:search]), :prompt => 'Select Post' %>
-			<%= submit_tag "Search", :name => nil %>
+			<%= submit_tag "Search", :name => nil, class: "btn btn-default my-btn" %>
 		<% end %>
-	<% end %>
+	</div>
 <% end %>

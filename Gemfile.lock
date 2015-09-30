@@ -40,14 +40,6 @@ GEM
     autoprefixer-rails (6.0.3)
       execjs
       json
-    aws-sdk (2.0.47)
-      aws-sdk-resources (= 2.0.47)
-    aws-sdk-core (2.0.47)
-      builder (~> 3.0)
-      jmespath (~> 1.0)
-      multi_json (~> 1.0)
-    aws-sdk-resources (2.0.47)
-      aws-sdk-core (= 2.0.47)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -92,8 +84,6 @@ GEM
     jbuilder (2.2.16)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jmespath (1.0.2)
-      multi_json (~> 1.0)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -180,9 +170,6 @@ GEM
     refile-mini_magick (0.1.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
-    refile-s3 (0.1.0)
-      aws-sdk (~> 2.0)
-      refile (~> 0.5.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rest-client (1.8.0)
@@ -254,7 +241,6 @@ DEPENDENCIES
   rails_12factor (= 0.0.2)
   refile
   refile-mini_magick
-  refile-s3
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

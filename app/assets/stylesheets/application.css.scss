@@ -20,7 +20,6 @@
 
 body {
 	padding-top: 50px;
-	background-color: #2B2B2B;
 }
 
 
@@ -83,23 +82,6 @@ body {
     font-weight: bold;
 }
 
-.jumbotron {
-    background-image: url(doors.jpeg);
-    background-size: cover;
-    background-position: center;
-    height: 350px;
-}
-
-.jumbotron h1, h2, p {
-    color: #FFFFFF;
-    text-align: center;
-}
-
-#search-form {
-    text-align: center;
-    padding-top: 50px;
-}
-
 .my-btn {
     color: #FFFFFF;
     border-color: #2B2B2B;
@@ -118,8 +100,31 @@ body {
     padding-bottom: 0px;
 }
 
+.container-fluid1 {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+}
 
+.navmenu-brand {
+    margin-top: 0;
+}
 
+.jumbotron {
+    background: url(doors.jpeg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+	h1, h2, p {
+   		color: #FFFFFF;
+    	text-align: center;
+	}
+}
 
-
-
+#search-form {
+    text-align: center;
+    padding-top: 50px;
+    select#search {
+		/* put styling here for search field */
+    }
+}

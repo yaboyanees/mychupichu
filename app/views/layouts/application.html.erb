@@ -8,71 +8,52 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
-    <a class="navmenu-brand" href="#">Brand</a>
-    <ul class="nav navmenu-nav">
-      <li class="active"><%= link_to 'Home', root_path %><span class="sr-only">(current)</span></li>
-      <li><%= link_to 'Add Chu', chus_path %></li>
-      <% if user_signed_in? %>
-        <li><%= link_to 'logout', destroy_user_session_path, :method => :delete %></li>
-      <% else %>
-        <li><%= link_to image_tag('fb.png'),user_omniauth_authorize_path(:facebook) %></li>
-        <li><%= link_to image_tag("Linkdin.png"), user_omniauth_authorize_path(:linkedin) %></li>
-      <% end %>
-    </ul>
-  </nav>
+	<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+		<a class="navmenu-brand" href="#">Brand</a>
+		<ul class="nav navmenu-nav">
+		  <li class="active"><%= link_to 'Home', root_path %><span class="sr-only">(current)</span></li>
+		  <li><%= link_to 'Add Chu', chus_path %></li>		
+		  <% if user_signed_in? %>
+			<li><%= link_to 'logout', destroy_user_session_path, :method => :delete %></li>	
+		  <% else %>
+			<li><%= link_to image_tag('fb.png'),user_omniauth_authorize_path(:facebook) %></li>
+			<li><%= link_to image_tag("Linkdin.png"), user_omniauth_authorize_path(:linkedin) %></li>
+		  <% end %>
+		</ul>
+	</nav>
 
 	<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#myNavmenu">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Mychupichu</a>
-    </div>
+	  <div class="container-fluid">
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#myNavmenu">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <%= link_to 'Mychupichu', root_path, :class=>"navbar-brand" %>
+		</div>
+	
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+			<li class="active"><%= link_to 'Home', root_path %><span class="sr-only">(current)</span></li>
+			<li><%= link_to 'Add Chu', chus_path %></li>
+		  </ul>
+		  <% if user_signed_in? %>
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to 'logout', destroy_user_session_path, :method => :delete %></li>
+			</ul>
+		  <% else %>
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to image_tag("fb.png"), user_omniauth_authorize_path(:facebook) %></li>
+				<li><%= link_to image_tag("Linkdin.png"), user_omniauth_authorize_path(:linkedin) %></li>
+			</ul>
+		  <% end %>	
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to 'Home', root_path %><span class="sr-only">(current)</span></li>
-        <li><%= link_to 'Add Chu', chus_path %></li>
-      </ul>
-      <% if user_signed_in? %>
-      	<ul class="nav navbar-nav navbar-right">
-      		<li><%= link_to 'logout', destroy_user_session_path, :method => :delete %></li>
-      	</ul>
-      <% else %>
-      	<ul class="nav navbar-nav navbar-right">
-      		<li><%= link_to image_tag("fb.png"), user_omniauth_authorize_path(:facebook) %></li>
-      		<li><%= link_to image_tag("Linkdin.png"), user_omniauth_authorize_path(:linkedin) %></li>
-      	</ul>
-      <% end %>	
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<% if user_signed_in? %>
-	<div class="jumbotron">
-		<h1>Hi</h1><%= current_user.name %>
-		<h2>Welcome back!</h2>
-	</div>
-<% else %>
-	<div class="jumbotron">
-		<h1>Welcome!</h1>
-		<h2>Our Home is Your Home!</h2>
-		<%= form_tag(root_path, :method => "get", id: "search-form") do %>
-		<%= select_tag :search, options_for_select(Chu::BASE_NAMES, params[:search]), :prompt => 'Select Post' %>
-		<%= submit_tag "Search", :name => nil, class: "btn btn-default my-btn" %>
-	<% end %>
-	</div>
-<% end %>
-
-
-	<div class="container-fluid">
-		<p class="notice"><%= notice %></p>
-
+	<div class="container-fluid1">
 		<%= yield %>
 	</div>
 </body>

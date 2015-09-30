@@ -19,19 +19,13 @@
     <%= form.text_field :tagline %><br />
     
 	<%= form.label :image1, "Cover Photo" %><br />
-	<%= form.attachment_field :image1, direct: true, presigned: true %><br />
+	<%= form.attachment_field :image1 %><br />
 	
 	<%= form.label :image2, "Photo 2" %><br />
-	<%= form.attachment_field :image2, direct: true, presigned: true %><br />
+	<%= form.attachment_field :image2 %><br />
 	
 	<%= form.label :image3, "Photo 3" %><br />
-	<%= form.attachment_field :image3, direct: true, presigned: true %><br />
-
-	<%= form.label :image4, "Photo 4" %><br />
-	<%= form.attachment_field :image4, direct: true, presigned: true %><br />
-
-	<%= form.label :image5, "Photo 5" %><br />
-	<%= form.attachment_field :image5, direct: true, presigned: true %><br />
+	<%= form.attachment_field :image3 %><br />
 
     <%= form.label :list_type %><br />
     <%= form.text_field :list_type %><br />

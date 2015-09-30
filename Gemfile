@@ -50,7 +50,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
-gem "refile-s3"
+#gem "refile-s3"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,16 +1,26 @@
 <h1>Chu Details</h1>
-<%= link_to 'Go Back to All Houses', :back %>
+<%= link_to 'Go Back to Results', :back %>
 
 <div style="width: 300px;">
 	<div id="map" style="width: 300px; height: 300px;"></div>
 </div>
 
 <%= @chu.tagline %><br />
-<%= image_tag attachment_url(@chu, :image1, :fill, 300, 300) %><br />
-<%= image_tag attachment_url(@chu, :image2, :fill, 300, 300) %><br />
-<%= image_tag attachment_url(@chu, :image3, :fill, 300, 300) %><br />
-<%= image_tag attachment_url(@chu, :image4, :fill, 300, 300) %><br />
-<%= image_tag attachment_url(@chu, :image5, :fill, 300, 300) %><br />
+<% if @chu.image1.present? %>
+	<%= image_tag attachment_url(@chu, :image1, :fill, 300, 300) %>
+<% else %>
+	<%= image_tag('noPhoto.jpg') %>
+<% end %>
+<% if @chu.image2.present? %>
+	<%= image_tag attachment_url(@chu, :image2, :fill, 300, 300) %>
+<% else %>
+	<%= image_tag('noPhoto.jpg') %>
+<% end %>
+<% if @chu.image3.present? %>
+	<%= image_tag attachment_url(@chu, :image3, :fill, 300, 300) %>
+<% else %>
+	<%= image_tag('noPhoto.jpg') %>
+<% end %><br />
 <%= @chu.available_date.strftime("%b %d") %><br />
 <%= @chu.address %><br />
 <%= @chu.base %><br />
