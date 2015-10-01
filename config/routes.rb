@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
+  get 'admin/show'
+
   resources :comments
   resources :chus
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }

@@ -50,4 +50,5 @@ class User < ActiveRecord::Base
 		b = a.titleize
 		return b
 	end
+
 end
