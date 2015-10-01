@@ -1,5 +1,5 @@
 <h1>Chu Details</h1>
-<%= link_to 'Go Back to Results', :back %>
+<%= link_to 'Go Back to Results', 'javascript:history.back()' %>
 
 <div style="width: 300px;">
 	<div id="map" style="width: 300px; height: 300px;"></div>
@@ -58,7 +58,7 @@
 
 <h1>Feedback on Tenants Experience</h1>
 <% if @comments.each do |c| %>  
-	<%= c.user.fullname %><br />
+	<%= c.user.fullname %> | <%= c.created_at.strftime("%d %^b %y") %><br />
 	<%= c.rating1 %> | <%= c.rating2 %><br />
 	<%= c.rate_text %><br /><br />
 <% end.empty? %>

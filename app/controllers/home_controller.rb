@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 		end
 		@comment = Comment.new
 		@c = Comment.pluck("id")
-		@comments = @chu.comments
+		@comments = @chu.comments.order("created_at DESC")
   end
 	
 end
