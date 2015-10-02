@@ -21,7 +21,7 @@
 <% else %>
 	<%= image_tag('noPhoto.jpg') %>
 <% end %><br />
-<%= @chu.available_date.strftime("%b %d") %><br />
+<%= @chu.available_date.strftime("%d %^b %y") %><br />
 <%= @chu.address %><br />
 <%= @chu.base %><br />
 <%= @chu.description %><br />
@@ -56,13 +56,13 @@
 	<% end %><br />
 <% end %>
 
-<h1>Feedback on Tenants Experience</h1>
+<h1>Feedback on Tenants Experience with <%= @chu.owner %></h1>
 <% if @comments.each do |c| %>  
 	<%= c.user.fullname %> | <%= c.created_at.strftime("%d %^b %y") %><br />
 	<%= c.rating1 %> | <%= c.rating2 %><br />
 	<%= c.rate_text %><br /><br />
 <% end.empty? %>
-	No feedback on this house yet...
+	No feedback on <%= @chu.owner %> yet...
 <% end %>
 
 <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>

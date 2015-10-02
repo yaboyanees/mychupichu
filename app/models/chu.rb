@@ -19,4 +19,10 @@ class Chu < ActiveRecord::Base
 	def self.search(query)
   		where("base like ?", "%#{query}%") 
 	end
+	
+	def owner
+		a = user.fullname
+		b = a.titleize
+		return b	
+	end
 end

@@ -1,2 +1,8 @@
 <h1>Admin#show</h1>
 <p>Find me in app/views/admin/show.html.erb</p>
+<% if params[:id] == "users" %>
+	<% @users.each do |u| %>
+		<%= u[0] %> | <%= u[1] %> |	<%= u[2] %><br />
+	<% end %>
+<% end %>
+<%= link_to 'Go Back', 'javascript:history.back()' %>
