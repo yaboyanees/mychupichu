@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150918223457) do
     t.string   "name"
     t.string   "provider"
     t.string   "uid"
+    t.string   "profile_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

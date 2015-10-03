@@ -25,4 +25,10 @@ class Chu < ActiveRecord::Base
 		b = a.titleize
 		return b	
 	end
+	
+	def profile
+		a = user.profile_url
+		return a
+	end
+	
 end

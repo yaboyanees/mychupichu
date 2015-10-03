@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
 						uid:auth.uid,
 						email:auth.info.email,
 						password:Devise.friendly_token[0,20],
+						profile_url:auth.extra.raw_info.link
 					  )
 		  	end
 		end
@@ -40,6 +41,7 @@ class User < ActiveRecord::Base
 						uid:auth.uid,
 						email:auth.info.email,
 						password:Devise.friendly_token[0,20],
+						profile_url:auth.info.urls.public_profile
 					  )
 		  	end
 		end
