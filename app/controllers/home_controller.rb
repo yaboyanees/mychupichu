@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
   	if params[:search].present?
-  		@chus = Chu.search(params[:search]).order("created_at DESC")
+  		@chus = Chu.search(params[:search]).order("available_date DESC")
 		@user = current_user
   	else
   		@posts = Chu.uniq.pluck("base")

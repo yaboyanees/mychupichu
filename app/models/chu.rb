@@ -13,8 +13,8 @@ class Chu < ActiveRecord::Base
 	attachment :image4, type: :image
 	attachment :image5, type: :image
 	
-	geocoded_by :address
-	after_validation :geocode
+	#geocoded_by :address
+	#after_validation :geocode
 	
 	def self.search(query)
   		where("base like ?", "%#{query}%") 

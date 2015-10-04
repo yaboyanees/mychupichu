@@ -15,17 +15,17 @@
 <% if @chu.image1.present? %>
 	<%= image_tag attachment_url(@chu, :image1, :fill, 300, 300) %>
 <% else %>
-	<%= image_tag('noPhoto.jpg') %>
+	<%= image_tag('noPhoto.jpg', size: "300") %>
 <% end %>
 <% if @chu.image2.present? %>
 	<%= image_tag attachment_url(@chu, :image2, :fill, 300, 300) %>
 <% else %>
-	<%= image_tag('noPhoto.jpg') %>
+	<%= image_tag('noPhoto.jpg', size: "300") %>
 <% end %>
 <% if @chu.image3.present? %>
 	<%= image_tag attachment_url(@chu, :image3, :fill, 300, 300) %>
 <% else %>
-	<%= image_tag('noPhoto.jpg') %>
+	<%= image_tag('noPhoto.jpg', size: "300") %>
 <% end %><br />
 <%= @chu.available_date.strftime("%d %^b %y") %><br />
 <%= @chu.address %><br />
@@ -37,6 +37,8 @@
 <%= @chu.sec_deposit %><br />
 <%= @chu.cleaning_fee %><br />
 <%= @chu.additional_info %><br />
+<%= @chu.smoking %><br />
+<%= @chu.pet %><br />
 
 <% if user_signed_in? %>
 	<% if current_user.id == @chu.user_id %>

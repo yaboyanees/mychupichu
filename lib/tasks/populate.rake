@@ -1,137 +1,95 @@
 namespace :db do
   	task populate: :environment do
   	require 'ffaker'
-
-		5.times do
+		#facebook users
+		2500.times do
 			 User.create(
 				name: FFaker::Name.name,
-				email: fname + '.' + lname + dell,
-				position_id: tl_rand_number.sample
-			)
-		end
-		
-		
-		(1..12).each do |n|
-			fname = FFaker::Name.first_name
-			lname = FFaker::Name.last_name
-			position_id = n
-			Employee.create(
+				provider: 'facebook',
+				uid: FFaker::SSNSE.ssn,
+				email: FFaker::Internet.free_email,
 				password: 'password',
-				fname: fname,
-				lname: lname,
-				email: fname + '.' + lname + dell,
-				position_id: position_id
+				profile_url: 'https://www.facebook.com/app_scoped_user_id/10153405514076264/'				
 			)
 		end
 		
-		(1..218).each do |n|
-			employee_id = n
-			Evaluation.create(
-				gScore: score_num.sample,
-				qScore: score_num.sample,
-				iScore: score_num.sample,
-				rScore: score_num.sample,
-				aScore: score_num.sample,
-				mScore: score_num.sample,
-				isScore: score_num.sample,
-				owScore: score_num.sample,
-				dScore: score_num.sample,
-				oScore: score_num.sample,
-				kScore: score_num.sample,
-				pScore: score_num.sample,
-				lScore: score_num.sample,
-				employee_id: employee_id,
-				rater_id: eval_number.sample
+		#linkedin users
+		2500.times do
+			 User.create(
+				name: FFaker::Name.name,
+				provider: 'linkedin',
+				uid: FFaker::SSNSE.ssn,
+				email: FFaker::Internet.free_email,
+				password: 'password',
+				profile_url: 'https://www.linkedin.com/in/aneesmerzi/'				
 			)
 		end
 		
-		(219..224).each do |n|
-			employee_id = n
-			Evaluation.create(
-				gScore: 5,
-				qScore: 5,
-				iScore: 5,
-				rScore: 5,
-				aScore: 5,
-				mScore: 5,
-				isScore: 5,
-				owScore: 5,
-				dScore: 5,
-				oScore: 5,
-				kScore: 5,
-				pScore: 5,
-				lScore: 5,
-				employee_id: employee_id,
-				rater_id: 219
-			)
-		end	
-		
-		(225..231).each do |n|
-			employee_id = n
-			Evaluation.create(
-				gScore: score_numTwo.sample,
-				qScore: score_numTwo.sample,
-				iScore: score_numTwo.sample,
-				rScore: score_numTwo.sample,
-				aScore: score_numTwo.sample,
-				mScore: score_numTwo.sample,
-				isScore: score_numTwo.sample,
-				owScore: score_numTwo.sample,
-				dScore: score_numTwo.sample,
-				oScore: score_numTwo.sample,
-				kScore: score_numTwo.sample,
-				pScore: score_numTwo.sample,
-				lScore: score_numTwo.sample,
-				employee_id: employee_id,
-				rater_id: eval_number.sample
+		#chus
+		1000.times do 
+			 Chu.create(
+				tagline: FFaker::Lorem.phrase,
+				list_type: 'house',
+				available_date: FFaker::Time.date,
+				latitude: FFaker::Geolocation.lat,
+				longitude: FFaker::Geolocation.lng,
+				address: FFaker::AddressAU.full_address,
+				base: base_name.sample,
+				description: FFaker::BaconIpsum.paragraphs.sample,
+				bedroom: bedroomNum.sample,
+				bathroom: bathroomNum.sample,
+				price: prices.sample,
+				sec_deposit: 750,
+				cleaning_fee: 250,
+				smoking: FFaker::Boolean.sample,
+				pet: FFaker::Boolean.sample, 
+				additional_info: FFaker::BaconIpsum.sentences.sample,
+				user_id: userchu.sample			
 			)
 		end
-		
-		50.times do
-			(1..50).each do |n|
-				employee_id = n
-				EmployeeEducation.create(
-					employee_id: employee_id,
-					education_id: 1
-				)
-			end
-		end
-		
-		132.times do
-			(51..182).each do |n|
-				employee_id = n
-				EmployeeEducation.create(
-					employee_id: employee_id,
-					education_id: bach_rand_number.sample
-				)
-			end
-		end
-		
-		48.times do
-			(183..230).each do |n|
-				employee_id = n
-				EmployeeEducation.create(
-					employee_id: employee_id,
-					education_id: mast_rand_number.sample
-				)
-			end
-		end
-		
-		700.times do
-			EmployeeSkill.create(
-				employee_id: emp_rand_number.sample,
-				skill_id: skill_number.sample
+
+		#comments
+		1000.times do 
+			 Comment.create(
+				rating1: r1.sample,
+				rating2: r1.sample,
+				rate_text: FFaker::BaconIpsum.paragraphs.sample,
+				chu_id: chu.sample,
+				user_id: usercomment.sample 		
 			)
-		end	
+		end
+
 	end
 end
 
-
-def dell
-	['@dell.com'].sample
+def base_name
+	["Hood","Bragg","Stewart","Benning","Bliss","Sill","Gordon","Drum","Lewis","Carson","Irwin","Knox","Lee","Meade","Belvoir","Riley","Polk","Wainright","Shafter","Jackson","Huachuca","Richardson","Sam Houston","Wainwright"].to_a.shuffle
 end
 
-def bach_rand_number
-	(2..11).to_a.shuffle
+def bedroomNum
+	[2,3,4].to_a.shuffle
 end
 
+def bathroomNum
+	[2,3,4].to_a.shuffle
+end
+
+def prices
+	[1150,1250,1350].to_a.shuffle
+end
+
+def r1
+	[1,2,3,4,5].to_a.shuffle
+end
+
+def chu
+	(1...1000).to_a.shuffle
+end
+
+def userchu
+	(1..1000).to_a
+end
+
+def usercomment
+	(1001..2000).to_a
+end

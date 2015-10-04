@@ -1,8 +1,12 @@
 <% if params[:search].present? %>	
 	<% if @chus.each do |chu| %> 
 		<%= link_to chu.tagline, home_path(chu), 'data-no-turbolink' => true %><br />
-		<%= image_tag attachment_url(chu, :image1, :fill, 300, 300, format: "jpg") %><br />
-		<%= chu.available_date.strftime("%b %d") %><br />
+		<% if chu.image1.present? %>
+			<%= image_tag attachment_url(chu, :image1, :fill, 300, 300, format: "jpg") %><br />
+		<% else %>
+			<%= image_tag('noPhoto.jpg', size: "300") %><br />
+		<% end %>
+		<%= chu.available_date.strftime("%d %^b %y") %><br />
 		<%= chu.bedroom %><br />
 		<%= chu.bathroom %><br />
 		<%= chu.price %><br />
