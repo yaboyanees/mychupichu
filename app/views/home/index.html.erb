@@ -1,24 +1,44 @@
-<% if params[:search].present? %>	
-	<% if @chus.each do |chu| %> 
-		<%= link_to chu.tagline, home_path(chu), 'data-no-turbolink' => true %><br />
-		<% if chu.image1.present? %>
-			<%= image_tag attachment_url(chu, :image1, :fill, 300, 300, format: "jpg") %><br />
-		<% else %>
-			<%= image_tag('noPhoto.jpg', size: "300") %><br />
-		<% end %>
-		<%= chu.available_date.strftime("%d %^b %y") %><br />
-		<%= chu.bedroom %><br />
-		<%= chu.bathroom %><br />
-		<%= chu.price %><br />
-		
-		<% if user_signed_in? %>
-			<% if @user.id == chu.user_id %>
-				<%= link_to 'Edit', edit_chu_path(chu) %>
-				<%= link_to 'Remove', chu, method: :delete, data: { confirm: 'Are you sure?' } %><br /> <br />       	
+<% if params[:search].present? %>
+<div class="container-fluid">
+	<% if @chus.each do |chu| %>
+		<div id="chu-container">
+			<div id="tagline-container">
+				<%= link_to chu.tagline, home_path(chu), 'data-no-turbolink' => true %>
+			</div>
+			<div id="image-container">
+				<% if chu.image1.present? %>
+					<%= image_tag attachment_url(chu, :image1, :fill, 300, 300, format: "jpg") %>
+				<% else %>
+					<%= image_tag('noPhoto.jpg', size: "300") %>
+				<% end %>
+			</div>
+			<div id="info-container">
+				<div class="info-container">
+					<h3>Date</h3>
+					<p><%= chu.available_date.strftime("%d %^b %y") %></p>
+				</div>
+				<div class="info-container">
+					<h3>Bed</h3>
+					<p><%= chu.bedroom %></p>
+				</div>
+				<div class="info-container">
+					<h3>Bath</h3>
+					<p><%= chu.bathroom %></p>
+				</div>
+				<div class="info-container">
+					<h3>Price</h3>
+					<p><%= chu.price %></p>
+				</div>
+			</div>
+			<% if user_signed_in? %>
+				<% if @user.id == chu.user_id %>
+					<%= link_to 'Edit', edit_chu_path(chu) %>
+					<%= link_to 'Remove', chu, method: :delete, data: { confirm: 'Are you sure?' } %><br /> <br />       	
+				<% end %>
 			<% end %>
-		<% end %><br />
-		
+		</div>
 	<% end.empty? %>
+</div>
 		<div class="jumbotron">
 			<h1>Please Check Back</h1>
 			<h2>No Chus For This Post Yet :(</h2>
@@ -36,5 +56,5 @@
 			<%= select_tag :search, options_for_select(Chu::BASE_NAMES, params[:search]), :prompt => 'Select Post' %>
 			<%= submit_tag "Search", :name => nil, class: "btn btn-default my-btn" %>
 		<% end %>
-	</div>
+	</div> 
 <% end %>
