@@ -7,6 +7,7 @@
     width: 32.875%;
     height: auto;
     margin-right: 5px;
+    margin-bottom: 5px;
     display: inline-block;
     float: left;
     border-color: #DE1B1B;
@@ -17,7 +18,7 @@
 @media only screen and (max-width: 767px) {
     #chu-container {
         width: 100%;
-        margin-top: 0;
+
         padding-right: 0;
         border-top: none;
         border-left: none;
