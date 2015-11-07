@@ -1,34 +1,21 @@
 <% if params[:search].present? %>
-<div class="container-fluid">
+<div class="jumbotron results">
+	<h1>Time to PCS?</h1>
+</div>
+<div class="container">
 	<% if @chus.each do |chu| %>
 		<div id="chu-container">
-			<div id="tagline-container">
-				<%= link_to chu.tagline, home_path(chu), 'data-no-turbolink' => true %>
-			</div>
 			<div id="image-container">
 				<% if chu.image1.present? %>
 					<%= image_tag attachment_url(chu, :image1, :fill, 300, 300, format: "jpg") %>
 				<% else %>
 					<%= image_tag('noPhoto.jpg', size: "300") %>
 				<% end %>
+				<p>$<%= chu.price %></p>		
 			</div>
-			<div id="info-container">
-				<div class="info-container">
-					<h3>Date</h3>
-					<p><%= chu.available_date.strftime("%d %^b %y") %></p>
-				</div>
-				<div class="info-container">
-					<h3>Bed</h3>
-					<p><%= chu.bedroom %></p>
-				</div>
-				<div class="info-container">
-					<h3>Bath</h3>
-					<p><%= chu.bathroom %></p>
-				</div>
-				<div class="info-container">
-					<h3>Price</h3>
-					<p><%= chu.price %></p>
-				</div>
+			<div id="tagline-container">
+				<%= link_to chu.tagline, home_path(chu), 'data-no-turbolink' => true %>
+				<p><%= chu.available_date.strftime("%d %^b %y") %> | <%= chu.bedroom %> Bed/<%= chu.bathroom %> Bath</p>
 			</div>
 			<% if user_signed_in? %>
 				<% if @user.id == chu.user_id %>
@@ -39,7 +26,7 @@
 		</div>
 	<% end.empty? %>
 </div>
-		<div class="jumbotron">
+		<div class="jumbotron home">
 			<h1>Please Check Back</h1>
 			<h2>No Chus For This Post Yet :(</h2>
 			<%= form_tag(root_path, :method => "get", id: "search-form") do %>
@@ -49,7 +36,7 @@
 		</div>
 	<% end %>
 <% else %>
-	<div class="jumbotron">
+	<div class="jumbotron home">
 		<h1>Welcome</h1>
 		<h2>Our Home is Your Home!</h2>
 		<%= form_tag(root_path, :method => "get", id: "search-form") do %>

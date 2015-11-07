@@ -11,12 +11,16 @@
  * file per style scope.
  *
  *= require jasny-bootstrap.min
- *= require_tree .
+ *= require_tree 
  *= require_self
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+html, body {
+    height: 100%;
+}
 
 body {
 	padding-top: 50px;
@@ -83,16 +87,66 @@ body {
 }
 
 .my-btn {
-    color: #FFFFFF;
-    border-color: #2B2B2B;
-    background-color: #2B2B2B;
+    color: #fff;
+    border-color: #fff;
+    background-color: transparent;
+    border-width: 2px;
+    text-align: center;
+    font-size: 1.1em;
+    border-radius: 0;
+    letter-spacing: 2px;
+    -webkit-transition: background-color .2s ease-out .2s,
+                        border-color .2s ease-out .2s,
+                        color .2s ease-out .2s;
+    -moz-transition: background-color .2s ease-out .2s,
+                     border-color .2s ease-out .2s,
+                     color .2s ease-out .2s;
+    -o-transition: background-color .2s ease-out .2s,
+                   border-color .2s ease-out .2s,
+                   color .2s ease-out .2s;
+    transition: background-color .2s ease-out .2s,
+                border-color .2s ease-out .2s,
+                color .2s ease-out .2s;
 }
+
 
 .my-btn:hover,
 .my-btn:focus {
-    color: #FFFFFF;
-    background-color: #DE1B1B;
+    color: #DE1B1B;
+    background-color: #fff;
     border-color: #DE1B1B;
+
+}
+
+.my-btn2 {
+    color: #DE1B1B;
+    border-color: #DE1B1B;
+    background-color: transparent;
+    border-width: 2px;
+    text-align: center;
+    font-size: 1.1em;
+    border-radius: 0;
+    letter-spacing: 2px;
+    -webkit-transition: background-color .2s ease-out .2s,
+                        color .2s ease-out .2s,
+                        border-color .2s ease-out .2s;
+    -moz-transition: background-color .2s ease-out .2s,
+                     color .2s ease-out .2s
+                     border-color .2s ease-out .2s;
+    -o-transition: background-color .2s ease-out .2s
+                   color .2s ease-out .2s
+                   border-color .2s ease-out .2s;
+    transition: background-color .2s ease-out .2s,
+                color .2s ease-out .2s
+                border-color .2s ease-out .2s;
+}
+
+.my-btn2:hover,
+.my-btn2:focus {
+    color: #fff;
+    background-color: #DE1B1B;
+    border-color: #fff;
+
 }
 
 .navbar-right li a img {
@@ -109,11 +163,11 @@ body {
     margin-top: 0;
 }
 
-.jumbotron {
+.jumbotron, .home {
     background: url(doors.jpeg) no-repeat;
     background-size: cover;
     background-position: center;
-    height: 600px;
+    height: 100%;
 	h1, h2, p {
    		color: #FFFFFF;
     	text-align: center;
@@ -135,6 +189,25 @@ body {
     }
 }
 
+.results {
+    background: url(pcs.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 30%;
+    h1 {
+        text-align: left;
+        color: #fff;
+    }
+}
+
+.item {
+    img {
+        max-height: 300;
+        width: 33.33%;
+        display: inline;
+        margin: auto;
+    }
+}
 
 
 
