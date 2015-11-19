@@ -4,6 +4,7 @@
 </div>
 <div class="container">
 	<% if @chus.each do |chu| %>
+	<%= link_to home_path(chu), 'data-no-turbolink' => true do %>
 		<div id="chu-container">
 			<div id="image-container">
 				<% if chu.image1.present? %>
@@ -14,7 +15,7 @@
 				<p>$<%= chu.price %></p>		
 			</div>
 			<div id="tagline-container">
-				<%= link_to chu.tagline, home_path(chu), 'data-no-turbolink' => true %>
+				<p><%= chu.tagline %></p>
 				<p><%= chu.available_date.strftime("%d %^b %y") %> | <%= chu.bedroom %> Bed/<%= chu.bathroom %> Bath</p>
 			</div>
 			<% if user_signed_in? %>
@@ -24,6 +25,7 @@
 				<% end %>
 			<% end %>
 		</div>
+		<% end %>
 	<% end.empty? %>
 </div>
 		<div class="jumbotron home">
