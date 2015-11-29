@@ -4,6 +4,9 @@
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
+    <li data-target="#myCarousel" data-slide-to="5"></li>
   </ol>
  
   <!-- Wrapper for slides -->
@@ -16,15 +19,36 @@
 		<% end %>
     </div>
     <div class="item">
-    	<% if @chu.image1.present? %>
+    	<% if @chu.image2.present? %>
 			<%= image_tag attachment_url(@chu, :image2, :fill, 300, 300) %>
 		<% else %>
 			<%= image_tag('noPhoto.jpg', size: "300") %>
 		<% end %>
     </div>
     <div class="item">
-      <% if @chu.image1.present? %>
+      <% if @chu.image3.present? %>
 			<%= image_tag attachment_url(@chu, :image3, :fill, 300, 300) %>
+		<% else %>
+			<%= image_tag('noPhoto.jpg', size: "300") %>
+		<% end %>
+    </div>
+    <div class="item">
+      <% if @chu.image4.present? %>
+			<%= image_tag attachment_url(@chu, :image4, :fill, 300, 300) %>
+		<% else %>
+			<%= image_tag('noPhoto.jpg', size: "300") %>
+		<% end %>
+    </div>
+    <div class="item">
+      <% if @chu.image5.present? %>
+			<%= image_tag attachment_url(@chu, :image5, :fill, 300, 300) %>
+		<% else %>
+			<%= image_tag('noPhoto.jpg', size: "300") %>
+		<% end %>
+    </div>
+    <div class="item">
+      <% if @chu.image6.present? %>
+			<%= image_tag attachment_url(@chu, :image6, :fill, 300, 300) %>
 		<% else %>
 			<%= image_tag('noPhoto.jpg', size: "300") %>
 		<% end %>
@@ -114,10 +138,10 @@
 			<h1>Share Your Experience Below</h1>
 			<%= form_for(@comment) do |f| %> 
 				<%= f.label :rating1, 'Home Rating' %><br />
-				<%= f.number_field :rating1 %><br />
+				<%= f.check_box :rating1 %><br />
 			  
 				<%= f.label :rating2, 'Owner Rating' %><br />
-				<%= f.number_field :rating2 %><br />
+				<%= f.check_box :rating2 %><br />
 			
 				<%= f.label :rate_text, 'Your Experience' %><br />
 				<%= f.text_area :rate_text %><br />

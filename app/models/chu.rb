@@ -12,12 +12,13 @@ class Chu < ActiveRecord::Base
 	attachment :image3, type: :image
 	attachment :image4, type: :image
 	attachment :image5, type: :image
+	attachment :image6, type: :image
 	
 	#geocoded_by :address
 	#after_validation :geocode
 	
 	def self.search(query)
-  		where("base like ?", "%#{query}%") 
+  		where("base LIKE ?", "%#{query}%") 
 	end
 	
 	def owner

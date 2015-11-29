@@ -8,7 +8,7 @@
   <% if @chu.image1.present? %>
   	<%= image_tag attachment_url(@chu, :image1, :fill, 300, 300) %>
   <% else %>
-  	<%= image_tag('noPhoto.jpg', size: "150") %>
+  	<%= image_tag('noPhoto.jpg', size: "300") %>
   <% end %>
 </p>
 
@@ -17,16 +17,16 @@
   <% if @chu.image2.present? %>
   	<%= image_tag attachment_url(@chu, :image2, :fill, 300, 300) %>
   <% else %>
-  	<%= image_tag('noPhoto.jpg', size: "150") %>
+  	<%= image_tag('noPhoto.jpg', size: "300") %>
   <% end %>
 </p>
 
 <p>
   <strong>Photo 3:</strong>
   <% if @chu.image3.present? %>
-  	<%= image_tag attachment_url(@chu, :image3, :fill, 150, 150) %>
+  	<%= image_tag attachment_url(@chu, :image3, :fill, 300, 300) %>
   <% else %>
-  	<%= image_tag('noPhoto.jpg', size: "150") %>
+  	<%= image_tag('noPhoto.jpg', size: "300") %>
   <% end %>
 </p>
 

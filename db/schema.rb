@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20150918223457) do
     t.string   "image1_id"
     t.string   "image2_id"
     t.string   "image3_id"
+    t.string   "image4_id"
+    t.string   "image5_id"
+    t.string   "image6_id"
     t.string   "list_type"
     t.date     "available_date"
     t.float    "latitude"
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 20150918223457) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "rating1"
-    t.integer  "rating2"
+    t.boolean  "rating1"
+    t.boolean  "rating2"
     t.text     "rate_text"
     t.integer  "chu_id"
     t.integer  "user_id"
